@@ -28,13 +28,23 @@
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div class="form-group">
                                     <label for="nombre">Nombre</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{ old('nombre') }}" required>
+                                    @if($errors->has('nombre'))
+                                        <small class="form-text text-danger">
+                                            {{ $errors->first('nombre') }}
+                                        </small>
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div class="form-group">
                                     <label for="documento">documento</label>
-                                    <input type="text" class="form-control" id="documento" name="documento" onkeypress="return Funciones.isNumberKey(event)" placeholder="Digite el # de documentos sin espacios ni puntos" required>
+                                    <input type="text" class="form-control" id="documento" name="documento" value="{{ old('documento') }}" onkeypress="return Funciones.isNumberKey(event)" placeholder="Digite el # de documentos sin espacios ni puntos" required>
+                                    @if($errors->has('documento'))
+                                        <small class="form-text text-danger">
+                                            {{ $errors->first('documento') }}
+                                        </small>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -42,13 +52,23 @@
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div class="form-group">
                                     <label for="correo">Correo</label>
-                                    <input type="email" class="form-control" id="correo" name="correo"  required>
+                                    <input type="email" class="form-control" id="correo" name="correo"  value="{{ old('correo') }}"  required>
+                                    @if($errors->has('correo'))
+                                        <small class="form-text text-danger">
+                                            {{ $errors->first('correo') }}
+                                        </small>
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div class="form-group">
                                     <label for="direccion">Dirección</label>
-                                    <input type="text" class="form-control" id="direccion" name="direccion"  required>
+                                    <input type="text" class="form-control" id="direccion" name="direccion" value="{{ old('direccion') }}" required>
+                                    @if($errors->has('direccion'))
+                                        <small class="form-text text-danger">
+                                            {{ $errors->first('direccion') }}
+                                        </small>
+                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -24,6 +24,7 @@ class Controller extends BaseController
                 if($validar==true){
                     return true;
                 }
+                session()->forget('sesion_usuario');// limpiar sesiones
                 return false;
             }
             // aca validamos los permisos exclusivos para los administradores

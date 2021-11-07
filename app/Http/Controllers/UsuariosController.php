@@ -9,6 +9,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use DataTables;
 use Illuminate\View\View;
+use App\Http\Requests\ValidarFormularioUsuarios;
+use App\Http\Requests\ValidarFormularioUsuariosEditar;
+
 
 class UsuariosController extends Controller
 {
@@ -74,7 +77,7 @@ class UsuariosController extends Controller
         }
     }
 
-    public function store(Request $request,User $user)
+    public function store(ValidarFormularioUsuarios $request,User $user)
     {
         if(!$this->verificarToken(1) == false){
             if($user->guardar($request)){
@@ -100,7 +103,7 @@ class UsuariosController extends Controller
         }
     }
 
-    public function update(Request $request, User $user)
+    public function update(ValidarFormularioUsuariosEditar $request, User $user)
     {
         if(!$this->verificarToken(1) == false){
             if($user->editar($request)){

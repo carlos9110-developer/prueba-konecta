@@ -6,6 +6,8 @@ use App\Models\Clientes;
 use Illuminate\Http\Request;
 use DataTables;
 use Illuminate\View\View;
+use App\Http\Requests\ValidarFormularioClientes;
+use App\Http\Requests\ValidarFormularioClientesEditar;
 
 class ClientesController extends Controller
 {
@@ -39,7 +41,7 @@ class ClientesController extends Controller
         }
     }
 
-    public function store(Request $request,Clientes $clientes)
+    public function store(ValidarFormularioClientes $request,Clientes $clientes)
     {
         if(!$this->verificarToken() == false){
             if($clientes->guardar($request)){
@@ -63,7 +65,7 @@ class ClientesController extends Controller
         }
     }
 
-    public function update(Request $request, Clientes $clientes)
+    public function update(ValidarFormularioClientesEditar $request, Clientes $clientes)
     {
         if(!$this->verificarToken() == false){
             if($clientes->editar($request)){
